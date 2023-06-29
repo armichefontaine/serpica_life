@@ -1,12 +1,17 @@
 .footer-text {
+    align-self: center;
     color: white;
-}
-
-footer {
-    bottom: 0;
-    position: fixed;
 }
 
 footer img {
     width: 100%;
+}
+.main-footer {
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
 }
