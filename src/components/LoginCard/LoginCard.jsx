@@ -69,6 +69,7 @@ function LoginCard({ changeToSignup }) {
                     onChange={(e) => updatePassword(e.target.value)}
                     label="Contraseña"
                     variant="outlined"
+                    type="password"
                     fullWidth
                 />
                 {errorMessage && (
