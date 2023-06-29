@@ -1,3 +1,7 @@
+form {
+    z-index: 1;
+}
+
 .card-form {
     max-width: 500px;
 }

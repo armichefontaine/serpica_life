@@ -1,23 +1,13 @@
-import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+
 import { Link, useNavigate } from 'react-router-dom'
-import Footer from '../components/Footer/Footer'
-import './MainLayout.css'
-import {
-    AppBar,
-    Button,
-    IconButton,
-    Menu,
-    MenuItem,
-    Toolbar,
-    Typography,
-} from '@mui/material'
+import { AppBar, Button, Toolbar } from '@mui/material'
+import { Box } from '@mui/system'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import MenuIcon from '@mui/icons-material/Menu'
-import PersonIcon from '@mui/icons-material/Person'
 
-import { Box } from '@mui/system'
+import Footer from '../components/Footer/Footer'
+import './MainLayout.css'
 
 function MainLayout() {
     const navigate = useNavigate()

@@ -26,7 +26,7 @@ export default function LazyBackgroundImg({
                 }url(${img})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
-                backgroundPositionY: 'center',
+                backgroundPositionY: '5%',
                 filter: loaded ? 'none' : 'blur(20px)',
                 transition: 'filter 0.5s',
                 ...style,

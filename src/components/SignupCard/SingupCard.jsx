@@ -38,8 +38,10 @@ function SignupCard({ changeToLogin }) {
         }
         const { data } = await signup(formData)
 
-        await sendEmail({ nombre, email })
+        const response = await sendEmail({ nombre, email })
+        console.log(response)
 
+        setIsRegistered(true)
         return data
     }
 
