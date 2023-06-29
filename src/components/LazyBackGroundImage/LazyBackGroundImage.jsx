@@ -18,12 +18,15 @@ export default function LazyBackgroundImg({
             style={{
                 display: 'flex',
                 justifyContent: 'center',
+                height: '100vh',
                 backgroundImage: `${
                     isDarkened
                         ? 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),'
                         : ''
                 }url(${img})`,
-                backgroundSize: 'cover',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPositionY: 'center',
                 filter: loaded ? 'none' : 'blur(20px)',
                 transition: 'filter 0.5s',
                 ...style,

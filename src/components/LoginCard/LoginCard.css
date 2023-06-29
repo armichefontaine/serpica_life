@@ -1,5 +1,7 @@
 .card-style {
     max-width: 500px;
+    margin: auto;
+    opacity: 0.95;
 }
 
 .emailLoginInput {
@@ -30,4 +32,8 @@
     background-color: white;
     outline: white;
     border: 2px solid white;
+}
+
+input {
+    background-color: #fff !important;
 }
