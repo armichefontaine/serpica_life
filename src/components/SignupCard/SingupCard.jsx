@@ -105,18 +105,40 @@ function SignupCard({ changeToLogin }) {
                                 variant="outlined"
                                 fullWidth
                             />
-                            <TextField
-                                error={passwordError}
-                                onFocus={() => setPasswordError(false)}
-                                name="password"
-                                label="Contraseña"
-                                type="password"
-                                variant="outlined"
-                                fullWidth
-                            />
                             <FormControl fullWidth variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">
-                                    Password
+                                    Contraseña
+                                </InputLabel>
+                                <OutlinedInput
+                                    onFocus={() => setPasswordError(false)}
+                                    error={passwordError}
+                                    type={showPassword ? 'text' : 'password'}
+                                    name="password"
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        !showPassword
+                                                    )
+                                                }
+                                                edge="end"
+                                            >
+                                                {showPassword ? (
+                                                    <VisibilityOff />
+                                                ) : (
+                                                    <Visibility />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
+                                />
+                            </FormControl>
+                            <FormControl fullWidth variant="outlined">
+                                <InputLabel htmlFor="outlined-adornment-password">
+                                    Confirmar Contraseña
                                 </InputLabel>
                                 <OutlinedInput
                                     onFocus={() => setPasswordError(false)}
