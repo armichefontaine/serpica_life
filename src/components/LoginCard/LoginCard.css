@@ -1,0 +1,33 @@
+.card-style {
+    max-width: 500px;
+}
+
+.emailLoginInput {
+    margin-bottom: 20px;
+}
+
+.buttons-action {
+    display: flex;
+    justify-content: space-around;
+}
+
+.title {
+    text-align: center;
+}
+
+.button-insta {
+    display: flex;
+    justify-content: space-between;
+    min-height: 4vh;
+}
+
+.whatsapp {
+    background-color: white;
+    border: 2px solid white;
+}
+
+.insta {
+    background-color: white;
+    outline: white;
+    border: 2px solid white;
+}

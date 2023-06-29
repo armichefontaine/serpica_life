@@ -1,0 +1,28 @@
+.card-form {
+    max-width: 500px;
+}
+
+.buttons-register {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divider {
+    padding-top: 60px;
+}
+.titulo {
+    text-align: center;
+}
+
+.card-success {
+    background-color: rgba(255, 255, 255, 0.178);
+}
+
+.button-back {
+    display: flex;
+    justify-content: center;
+}
+
+.MuiInputBase-root {
+    margin-bottom: 20px;
+}

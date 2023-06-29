@@ -1,0 +1,33 @@
+.cardCategory {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    margin: 20px;
+    align-items: center;
+    border: 1px solid black;
+    transition: transform 0.3s ease;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+    transform: scale(1.03);
+}
+
+.cardImage {
+    width: 150px;
+    height: 150px;
+}
+
+.card-leave {
+    transform: scale(1);
+}
+
+.cardText {
+    color: black;
+}
+
+.cardCategory:hover {
+    box-shadow: none;
+}
+
+.cardCategory:hover {
+    transform: scale(1);
+}

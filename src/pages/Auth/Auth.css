@@ -1,0 +1,17 @@
+.box {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+}
+.boxLogin {
+    background-image: url('../../assets/backgrounds/loginbackground-min.jpg');
+}
+
+.boxRegister {
+    background-image: url('../../assets/backgrounds/registerbackground-min.jpg');
+}

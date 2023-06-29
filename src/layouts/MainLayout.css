@@ -1,0 +1,44 @@
+.navContent {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+.menuContent {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+
+button {
+    color: black;
+}
+
+.logo-life {
+    --factor-reduccion: 5;
+    background-image: url('../assets/logo.jpg');
+    width: calc(800px / var(--factor-reduccion));
+    height: calc(566px / var(--factor-reduccion));
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.buy-profile {
+    display: flex;
+    align-items: center;
+}
+
+.buyMenu {
+    display: flex;
+    align-items: center;
+}
+
+.profileMenu {
+    display: flex;
+    align-items: center;
+}
+
+.footer-text {
+    color: white;
+}

@@ -1,0 +1,41 @@
+.cardProductStyle {
+    display: flex;
+    width: 700px;
+    height: 200px;
+    align-items: center;
+    border: 1px solid black;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    padding: 30px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 1);
+}
+
+.cardImage {
+    width: 200px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.imageContainer {
+    width: 200px;
+    height: 150px;
+}
+
+.noUnderline {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.headerCard {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.cardProductStyle:hover {
+    box-shadow: none;
+}
+
+.cardProductStyle:hover {
+    transform: scale(1);
+}
