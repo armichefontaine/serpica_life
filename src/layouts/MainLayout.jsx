@@ -1,16 +1,25 @@
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { AppBar, Button, Toolbar } from '@mui/material'
-import { Box } from '@mui/system'
+import { AppBar, Avatar, Button, Stack, Toolbar, Box } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import ShopDialog from '../components/ShopDialog/ShopDialog'
+
+import useMediaQuery from '@mui/material/useMediaQuery'
+import MenuDrawer from '../components/MenuDrawer/MenuDrawer'
 
 import Footer from '../components/Footer/Footer'
 import './MainLayout.css'
 
 function MainLayout() {
+    const [open, setOpen] = useState(true)
+    const matches = useMediaQuery('(min-width:600px)')
     const navigate = useNavigate()
+
+    function handleMenu() {
+        setOpen(!open)
+    }
 
     function onLogout() {
         localStorage.removeItem('token')
@@ -20,85 +29,44 @@ function MainLayout() {
     return (
         <>
             <AppBar elevation={0} position="sticky">
-                <Toolbar
-                    className="navContent"
-                    variant="dense"
-                    sx={{ display: 'Flex', height: '120px' }}
-                >
+                <Toolbar className="navContent" variant="dense">
                     <Link to={'/home'}>
-                        <Box className="logo-life" />
+                        <Box className="logoLife" />
                     </Link>
-                    <Box className="menuContent">
-                        <Box>
-                            <Link to={'/home'}>
-                                <Button
-                                    sx={{ color: 'black', fontWeight: 'bold' }}
-                                >
-                                    Inicio
-                                </Button>
-                            </Link>
-                        </Box>
-
-                        <Box>
-                            <Link to={'/home'}>
-                                <Button
-                                    sx={{ color: 'black', fontWeight: 'bold' }}
-                                >
-                                    Categorías
-                                </Button>
-                            </Link>
-                        </Box>
-
-                        <Box>
-                            <Link to={'https://www.homelife.it/es/download/'}>
-                                <Button
-                                    sx={{ color: 'black', fontWeight: 'bold' }}
-                                >
-                                    Manuales
-                                </Button>
-                            </Link>
-                        </Box>
-
-                        {/* <Box>
-              <Link to={"/home"}>
-                <Button sx={{ color: "black", fontWeight: "bold" }}>
-                  Contacto
-                </Button>
-              </Link>
-            </Box> */}
+                    <Box
+                        className="menuContent"
+                        sx={{
+                            display: 'flex',
+                            marginLeft: 'auto',
+                            gap: 2,
+                            fontSize: '0.8rem',
+                        }}
+                    >
+                        <Link to={'/home'}>Inicio</Link>
+                        <Link to={'/home'}>Categorías</Link>
+                        <Link to={'https://www.homelife.it/es/download/'}>
+                            Manuales
+                        </Link>
                     </Box>
-
-                    <Box className="buy-profile">
-                        <Box>
-                            <Link to={'/shopping-cart'} className="buyMenu">
-                                <ShoppingCartIcon sx={{ color: 'black' }} />
-                                <Button
-                                    sx={{ color: 'black', fontWeight: 'bold' }}
-                                >
-                                    Cesta
-                                </Button>
-                            </Link>
-                        </Box>
-                        <Box sx={{ marginLeft: '20px' }}>
-                            <Link to={'/home'} className="profileMenu">
-                                <LogoutIcon
-                                    sx={{
-                                        color: 'black',
-                                        width: '24px',
-                                        height: '24px',
-                                    }}
-                                />
-                                <Button
-                                    onClick={() => onLogout()}
-                                    sx={{ color: 'black', fontWeight: 'bold' }}
-                                >
-                                    Desconectar
-                                </Button>
-                            </Link>
-                        </Box>
-                    </Box>
+                    <MenuDrawer open={open} setOpen={setOpen} />
+                    <Stack
+                        direction="column"
+                        margin="0 10px 0 auto"
+                        paddingRight={2}
+                    >
+                        <Avatar
+                            onClick={handleMenu}
+                            sx={{
+                                width: '40px',
+                                height: '40px',
+                            }}
+                            alt=""
+                            src="../../assets/avatar.jpg"
+                        />
+                    </Stack>
                 </Toolbar>
             </AppBar>
+            <ShopDialog />
             <Outlet />
             <Footer />
         </>

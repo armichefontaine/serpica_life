@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ProductQuantity.css'
 
-function ProductQuantity({ valor = 1, actualizarValor }) {
+function ProductQuantity({ valor = 1, actualizarValor, vertical = false }) {
     const [quantity, setQuantity] = useState(valor)
 
     function increase() {
@@ -19,20 +19,39 @@ function ProductQuantity({ valor = 1, actualizarValor }) {
     }
 
     return (
-        <div className="container">
-            <button className="quantityButton" onClick={decrease}>
-                -
-            </button>
-            <input
-                className="inputText"
-                type="text"
-                value={quantity}
-                readOnly
-            />
-            <button className="quantityButton" onClick={increase}>
-                +
-            </button>
-        </div>
+        <>
+            {vertical ? (
+                <div className="containerVertical">
+                    <button className="quantityButton" onClick={increase}>
+                        +
+                    </button>
+                    <input
+                        className="inputVerticalText"
+                        type="text"
+                        value={quantity}
+                        readOnly
+                    />
+                    <button className="quantityButton" onClick={decrease}>
+                        -
+                    </button>
+                </div>
+            ) : (
+                <div className="container">
+                    <button className="quantityButton" onClick={decrease}>
+                        -
+                    </button>
+                    <input
+                        className="inputText"
+                        type="text"
+                        value={quantity}
+                        readOnly
+                    />
+                    <button className="quantityButton" onClick={increase}>
+                        +
+                    </button>
+                </div>
+            )}
+        </>
     )
 }
 

@@ -1,44 +1,41 @@
 .navContent {
+    padding: 0 !important;
     display: flex;
-    justify-content: space-between;
-    background-color: white;
-    border-bottom: 1px solid black;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.26);
 }
-
-.menuContent {
+.logoutWrapper a {
+    color: #fff !important;
+}
+.logoutWrapper {
+    background-color: #ff000099;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 10px !important;
     display: flex;
-    justify-content: space-between;
-    width: 600px;
+    flex-direction: column;
+    font-size: small;
 }
-
-button {
-    color: black;
-}
-
-.logo-life {
+.logoLife {
     --factor-reduccion: 5;
     background-image: url('../assets/logo.jpg');
-    width: calc(800px / var(--factor-reduccion));
-    height: calc(566px / var(--factor-reduccion));
+    width: calc(420px / var(--factor-reduccion));
+    height: calc(266px / var(--factor-reduccion));
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-.buy-profile {
+.logoutProfile {
     display: flex;
+    margin-left: auto;
     align-items: center;
 }
 
-.buyMenu {
-    display: flex;
-    align-items: center;
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: #000;
 }
 
-.profileMenu {
-    display: flex;
-    align-items: center;
-}
-
-.footer-text {
-    color: white;
+.MuiStack-root {
+    padding: 0 !important;
 }

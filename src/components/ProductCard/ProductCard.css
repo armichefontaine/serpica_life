@@ -1,24 +1,23 @@
 .cardProductStyle {
     display: flex;
     width: 700px;
-    height: 200px;
+    min-height: 200px;
     align-items: center;
     border: 1px solid black;
     transition: transform 0.3s ease;
     margin: 10px;
-    padding: 30px;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 1);
 }
 
 .cardImage {
-    width: 200px;
+    width: 40%;
     height: 150px;
     background-size: cover;
     background-position: center;
 }
 
 .imageContainer {
-    width: 200px;
+    width: 60%;
     height: 150px;
 }
 
@@ -28,6 +27,7 @@
 }
 
 .headerCard {
+    padding: 0px !important;
     text-align: left;
     margin-bottom: 30px;
 }
@@ -38,4 +38,19 @@
 
 .cardProductStyle:hover {
     transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .description {
+        font-size: 14px !important;
+    }
+    .cardProductStyle {
+        padding: 10px;
+    }
+    .productAmount {
+        margin: 0px !important; 
+    }
+    .productDescriptionWrapper {
+        width: 200px;
+    }
 }

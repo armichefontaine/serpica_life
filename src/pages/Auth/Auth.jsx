@@ -7,6 +7,7 @@ import './Auth.css'
 import LOGIN_BACKGROUND from '../../assets/backgrounds/loginbackground-min.webp'
 import REGISTER_BACKGROUND from '../../assets/backgrounds/registerbackground-min.jpg'
 import FOOTER_BACKGROUND from '../../assets/backgrounds/footer.webp'
+import { Box } from '@mui/material'
 
 function Auth() {
     const [isLogin, setIsLogin] = useState(true)
@@ -16,7 +17,7 @@ function Auth() {
     }
 
     return (
-        <>
+        <Box sx={{ overflow: 'hidden' }}>
             <header>
                 {isLogin ? (
                     <img src={LOGIN_BACKGROUND} alt="login-register image" />
@@ -35,10 +36,8 @@ function Auth() {
                     <SingupCard changeToLogin={toggleLoginSignup} />
                 )}
             </main>
-            <footer className="auth-footer">
-                <img src={FOOTER_BACKGROUND} />
-            </footer>
-        </>
+            <footer className="auth-footer"></footer>
+        </Box>
     )
 }
 

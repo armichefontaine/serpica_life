@@ -1,17 +1,33 @@
 .footer-text {
+    font-size: 0.8rem !important;
     align-self: center;
     color: white;
+    line-height: 1.2 !important;
 }
 
 footer img {
     width: 100%;
 }
 .main-footer {
-    display: flex;
+    padding: 15px 0px !important;
+    height: fit-content !important;
+    text-align: center;
     justify-content: space-around;
+    display: flex;
     bottom: 0;
     height: 100px;
     width: 100%;
     background-color: #000;
     position: fixed;
+}
+
+@media (max-width: 400px) {
+    .footer-text {
+        font-size: 0.6rem !important;
+        align-self: center;
+        color: white;
+    }
+    .main-footer {
+        padding: 40px 0px;
+    }
 }

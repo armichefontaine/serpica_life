@@ -3,6 +3,8 @@ header {
     position: fixed;
 }
 .auth-footer {
+    bottom: 0px;
+    height: 200px;
     z-index: -1 !important;
 }
 header img {
@@ -14,6 +16,15 @@ main {
     justify-content: center;
     height: 100vh;
     z-index: 999999 !important;
+}
+footer {
+    background-image: url('../../assets/backgrounds/footer.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: bottom;
+    position: fixed;
+    width: 100%;
 }
 .registerImage {
     height: 100vh;

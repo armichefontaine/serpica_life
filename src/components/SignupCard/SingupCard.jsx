@@ -36,10 +36,12 @@ function SignupCard({ changeToLogin }) {
             setPasswordError(true)
             return
         }
-        const { data } = await signup(formData)
+        const { data } = await signup({
+            ...formData,
+            email: email.toLowerCase(),
+        })
 
         const response = await sendEmail({ nombre, email })
-        console.log(response)
 
         setIsRegistered(true)
         return data

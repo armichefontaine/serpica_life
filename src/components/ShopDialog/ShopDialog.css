@@ -1,0 +1,8 @@
+.shopDialog * {
+  font-size: 14px !important;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+  color: #1976D2;
+}

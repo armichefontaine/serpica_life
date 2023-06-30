@@ -23,14 +23,15 @@ function ProductCard({
     price,
 }) {
     const { removeFromCart } = useContext(CartContext)
-    const [quantity, setQuantity] = useState(1)
-
     const { addToCart } = useContext(CartContext)
+    const [quantity, setQuantity] = useState(1)
     const [addedToCart, setAddedToCart] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [sumPrice, setSumPrice] = useState(price)
 
     function quantityUpdate(newQuantity) {
         setQuantity(newQuantity)
+        setSumPrice(newQuantity * price)
     }
 
     function handleBuyClick() {
@@ -57,27 +58,12 @@ function ProductCard({
 
     return (
         <Card className="cardProductStyle">
-            <Box className="imageContainer">
-                <CardMedia className="cardImage" image={image}></CardMedia>
-            </Box>
-
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    width: '250',
-                    margin: '20px',
-                }}
-            >
-                <CardHeader
-                    className="headerCard"
-                    sx={{ padding: '0px' }}
-                    title={title}
-                ></CardHeader>
-                <Typography sx={{ width: '250px', fontSize: '13px' }}>
+            <CardMedia className="cardImage" image={image}></CardMedia>
+            <Box className="productDescriptionWrapper">
+                <CardHeader className="headerCard" title={title}></CardHeader>
+                <Typography className="description" sx={{ width: '250px' }}>
                     {description}
                 </Typography>
-
                 <Typography
                     sx={{
                         fontWeight: 'bold',
@@ -104,10 +90,10 @@ function ProductCard({
                 </Link>
             </Box>
             <Box
+                className="productAmount"
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    width: '250',
                     margin: '20px',
                 }}
             >
@@ -119,7 +105,7 @@ function ProductCard({
                         color: 'black',
                     }}
                 >
-                    {price} €
+                    {sumPrice} €
                 </Typography>
                 <ProductQuantity
                     valor={quantity}

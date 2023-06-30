@@ -10,7 +10,7 @@ function CategoryCard({ title, image }) {
     const [hoverClass, setHoverClass] = useState('')
 
     return (
-        <Card className="cardCategory" sx={{ height: '200px' }}>
+        <Card className="cardCategory">
             <CardMedia className="cardImage" image={prueba} />
             <CardHeader
                 className="cardText"

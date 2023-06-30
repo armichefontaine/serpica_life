@@ -26,8 +26,6 @@ function Products() {
         async function refreshProducts() {
             const { data } = await getProductsbyCategory(categoryId)
             setProducts(data)
-
-            console.log(data)
         }
         getCategoriesRequest()
     }, [])
@@ -49,7 +47,7 @@ function Products() {
         return cards
     }
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'colum' }}>
             <Box
                 sx={{
                     textAlign: 'center',

@@ -28,7 +28,7 @@ function LoginCard({ changeToSignup }) {
     const navigate = useNavigate()
 
     function updateEmail(inputValue) {
-        setEmail(inputValue)
+        setEmail(inputValue?.toLowerCase())
     }
 
     function updatePassword(inputValue) {
@@ -42,7 +42,6 @@ function LoginCard({ changeToSignup }) {
         }
         try {
             const apiResponse = await login(dataInLogin)
-            console.log(apiResponse)
             localStorage.setItem('token', apiResponse.data.token)
             navigate('/home')
         } catch (error) {
@@ -69,7 +68,6 @@ function LoginCard({ changeToSignup }) {
                     onChange={(e) => updatePassword(e.target.value)}
                     label="Contraseña"
                     variant="outlined"
-                    type="password"
                     fullWidth
                 />
                 {errorMessage && (
