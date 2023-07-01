@@ -1,0 +1,12 @@
+
+.menu-wrapper p {
+  filter: invert(1);
+  width: 100% !;
+  text-align: center;
+  height: 45px;
+  color: #ffff;
+  background: #000;
+  line-height: 45px;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+}

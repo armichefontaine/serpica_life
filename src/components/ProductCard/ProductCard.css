@@ -1,16 +1,4 @@
-.cardProductStyle {
-    display: flex;
-    width: 700px;
-    min-height: 200px;
-    align-items: center;
-    border: 1px solid black;
-    transition: transform 0.3s ease;
-    margin: 10px;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 1);
-}
-
-.cardImage {
-    width: 40%;
+/* .cardImage {
     height: 150px;
     background-size: cover;
     background-position: center;
@@ -53,4 +41,4 @@
     .productDescriptionWrapper {
         width: 200px;
     }
-}
+} */

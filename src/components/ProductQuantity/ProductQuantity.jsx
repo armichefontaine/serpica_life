@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import './ProductQuantity.css'
+import { Box, Button, Typography } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
 
 function ProductQuantity({ valor = 1, actualizarValor, vertical = false }) {
     const [quantity, setQuantity] = useState(valor)
@@ -19,39 +22,43 @@ function ProductQuantity({ valor = 1, actualizarValor, vertical = false }) {
     }
 
     return (
-        <>
-            {vertical ? (
-                <div className="containerVertical">
-                    <button className="quantityButton" onClick={increase}>
-                        +
-                    </button>
-                    <input
-                        className="inputVerticalText"
-                        type="text"
-                        value={quantity}
-                        readOnly
+        <Box
+            display={'grid'}
+            gridTemplateColumns={'repeat(3, 1fr)'}
+            marginBottom={5}
+            width={'100%'}
+            sx={{ background: '#eeeeee' }}
+        >
+            <Box height={'100%'} width={'100%'} display={'flex'}>
+                <Button sx={{ borderRadius: 0, margin: 'auto' }}>
+                    <RemoveIcon
+                        fontSize={'small'}
+                        sx={{ margin: 'auto', color: '#000' }}
+                        onClick={decrease}
                     />
-                    <button className="quantityButton" onClick={decrease}>
-                        -
-                    </button>
-                </div>
-            ) : (
-                <div className="container">
-                    <button className="quantityButton" onClick={decrease}>
-                        -
-                    </button>
-                    <input
-                        className="inputText"
-                        type="text"
-                        value={quantity}
-                        readOnly
+                </Button>
+            </Box>
+            <Typography
+                fontWeight={500}
+                height={'100%'}
+                display={'flex'}
+                alignItems={'center'}
+                justifyContent={'center'}
+                // border={'1px solid rgb(0,0,0,0.2)'}
+                style={{ background: '#fff' }}
+            >
+                {quantity}
+            </Typography>
+            <Box height={'100%'} width={'100%'} display={'flex'}>
+                <Button sx={{ borderRadius: 0, margin: 'auto' }}>
+                    <AddIcon
+                        fontSize={'small'}
+                        sx={{ margin: 'auto', color: '#000' }}
+                        onClick={increase}
                     />
-                    <button className="quantityButton" onClick={increase}>
-                        +
-                    </button>
-                </div>
-            )}
-        </>
+                </Button>
+            </Box>
+        </Box>
     )
 }
 

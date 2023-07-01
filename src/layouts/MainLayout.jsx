@@ -12,9 +12,11 @@ import MenuDrawer from '../components/MenuDrawer/MenuDrawer'
 import Footer from '../components/Footer/Footer'
 import './MainLayout.css'
 
+import DEFAULT_AVATAR from '../assets/avatar.jpg'
+
 function MainLayout() {
-    const [open, setOpen] = useState(true)
-    const matches = useMediaQuery('(min-width:600px)')
+    const [open, setOpen] = useState(false)
+    const matches = useMediaQuery('(min-width: 768px)')
     const navigate = useNavigate()
 
     function handleMenu() {
@@ -34,12 +36,12 @@ function MainLayout() {
                         <Box className="logoLife" />
                     </Link>
                     <Box
-                        className="menuContent"
                         sx={{
                             display: 'flex',
-                            marginLeft: 'auto',
                             gap: 2,
-                            fontSize: '0.8rem',
+                            fontWeight: 600,
+                            marginLeft: 'auto',
+                            fontSize: '0.86rem',
                         }}
                     >
                         <Link to={'/home'}>Inicio</Link>
@@ -60,8 +62,8 @@ function MainLayout() {
                                 width: '40px',
                                 height: '40px',
                             }}
-                            alt=""
-                            src="../../assets/avatar.jpg"
+                            alt="Avatar de  ususario"
+                            src={DEFAULT_AVATAR}
                         />
                     </Stack>
                 </Toolbar>

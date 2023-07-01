@@ -1,28 +1,32 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { green, grey, indigo, orange } from '@mui/material/colors'
 import {
     Card,
-    CardHeader,
     CardMedia,
     Typography,
     Box,
     Button,
+    CardContent,
+    Divider,
+    CardActions,
+    Grid,
+    useMediaQuery,
 } from '@mui/material'
 
 import './ProductCard.css'
 import ProductQuantity from '../ProductQuantity/ProductQuantity'
 import { CartContext } from '../../contexts/ShoppingCartContext'
-import PopupButton from '../Popup/Popup'
 
-function ProductCard({
-    title,
-    image,
-    description,
-    accesories,
-    urlMoreInfo,
-    price,
-}) {
+import { useTheme } from '@mui/material/styles'
+
+import IMAGE_BROKEN from '../../assets/image-broken.jpg'
+
+function ProductCard({ props }) {
+    const { name, image, description, accesories, urlMoreInfo, price } = props
+    const theme = useTheme()
     const { removeFromCart } = useContext(CartContext)
+    const matches = useMediaQuery(theme.breakpoints.down('sm'))
     const { addToCart } = useContext(CartContext)
     const [quantity, setQuantity] = useState(1)
     const [addedToCart, setAddedToCart] = useState(false)
@@ -56,88 +60,158 @@ function ProductCard({
         setIsOpen(false)
     }
 
+    useEffect(() => {
+        console.log(matches)
+    }, [matches])
+
     return (
-        <Card className="cardProductStyle">
-            <CardMedia className="cardImage" image={image}></CardMedia>
-            <Box className="productDescriptionWrapper">
-                <CardHeader className="headerCard" title={title}></CardHeader>
-                <Typography className="description" sx={{ width: '250px' }}>
-                    {description}
-                </Typography>
-                <Typography
-                    sx={{
-                        fontWeight: 'bold',
-                        marginTop: '4px',
-                        fontSize: '15px',
-                    }}
-                >
-                    Incluye
-                </Typography>
-
-                <Typography sx={{ fontSize: '12px' }}>{accesories}</Typography>
-
-                <Link className="noUnderline" to={urlMoreInfo}>
-                    <Typography
+        <Card sx={{ flexGrow: 1 }}>
+            <Grid container sx={{ minHeight: '100%' }}>
+                <Grid item xs>
+                    <CardContent
                         sx={{
-                            paddingTop: '8px',
-                            fontSize: '12px',
-                            color: 'orange',
-                            fontWeight: 'bold',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            paddingBottom: 0,
+                            minHeight: '100%',
                         }}
                     >
-                        Más información
-                    </Typography>
-                </Link>
-            </Box>
-            <Box
-                className="productAmount"
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    margin: '20px',
-                }}
-            >
-                <Typography
-                    sx={{
-                        fontSize: '25px',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        color: 'black',
-                    }}
-                >
-                    {sumPrice} €
-                </Typography>
-                <ProductQuantity
-                    valor={quantity}
-                    actualizarValor={quantityUpdate}
-                />
-
-                <Button
-                    sx={{
-                        backgroundColor: 'green',
-                        marginTop: '30px',
-                        '&:hover': {
-                            backgroundColor: '#005000',
-                        },
-                    }}
-                    variant="contained"
-                    onClick={handleBuyClick}
-                >
-                    Comprar
-                </Button>
-                {addedToCart && (
-                    <Typography
+                        <Box sx={{ display: 'flex', width: '100%' }}>
+                            <CardMedia
+                                component="img"
+                                sx={{
+                                    marginTop: '-10px',
+                                    marginLeft: '-10px',
+                                    width: 150,
+                                    height: 100,
+                                    alignItems: 'center',
+                                }}
+                                image={IMAGE_BROKEN}
+                                alt="Imagen producto"
+                            />
+                            <Typography
+                                fontWeight="bold"
+                                fontSize="25px"
+                                component="h2"
+                                marginLeft={2}
+                            >
+                                {name}
+                            </Typography>
+                        </Box>
+                        <Divider />
+                        <Box paddingTop={1} width={'100%'} marginTop={'auto'}>
+                            <Typography fontSize="12px">
+                                {description}
+                            </Typography>
+                            <Typography paddingTop={2} fontSize={10}>
+                                Incluye:
+                            </Typography>
+                            <Box display={'flex'}>
+                                <Typography fontSize={12} fontWeight={600}>
+                                    {accesories}
+                                </Typography>
+                                <Link
+                                    to={urlMoreInfo}
+                                    style={{
+                                        marginLeft: 'auto',
+                                    }}
+                                >
+                                    <Typography color={orange[400]}>
+                                        Más información
+                                    </Typography>
+                                </Link>
+                            </Box>
+                        </Box>
+                        {matches && <Divider />}
+                    </CardContent>
+                </Grid>
+                <Grid item xs={12} md={3} sm={3}>
+                    <Box
                         sx={{
-                            fontSize: '10px',
-                            paddingTop: '10px',
-                            textAlign: 'center',
-                            fontWeight: 'bold',
+                            flex: '',
+                            margin: 'auto',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
                         }}
                     >
-                        ¡Añadido a la cesta!
-                    </Typography>
-                )}
-            </Box>
+                        <Typography
+                            sx={{
+                                fontSize: '35px',
+                                textAlign: 'center',
+                                color: 'black',
+                                paddingY: 2,
+                            }}
+                        >
+                            {sumPrice} €
+                        </Typography>
+                        <ProductQuantity
+                            valor={quantity}
+                            actualizarValor={quantityUpdate}
+                        />
+                        <CardActions
+                            disableSpacing
+                            sx={{
+                                display: 'grid',
+                                padding: 0,
+                                width: '100%',
+                            }}
+                        >
+                            <Button
+                                fullWidth
+                                sx={{
+                                    color: '#fff',
+                                    fontWeight: 500,
+                                    borderRadius: 0,
+                                    height: '100%',
+                                    backgroundColor: grey[900],
+                                    transitionDuration: '0.6s',
+                                    marginBottom: 1,
+
+                                    '&:hover': {
+                                        filter: grey[900],
+                                        background: grey[700],
+                                    },
+                                }}
+                                onClick={handleBuyClick}
+                            >
+                                AÑADIR
+                            </Button>
+                            <Button
+                                fullWidth
+                                sx={{
+                                    color: '#fff',
+                                    fontWeight: 500,
+                                    borderRadius: 0,
+                                    height: '100%',
+                                    backgroundColor: green[400],
+                                    transitionDuration: '0.6s',
+                                    paddingY: '12px',
+                                    '&:hover': {
+                                        color: '#fff',
+                                        background: green[300],
+                                    },
+                                }}
+                                onClick={handleBuyClick}
+                            >
+                                PAGAR
+                            </Button>
+                            {addedToCart && (
+                                <Typography
+                                    sx={{
+                                        fontSize: '10px',
+                                        paddingTop: '10px',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    ¡Añadido a la cesta!
+                                </Typography>
+                            )}
+                        </CardActions>
+                    </Box>
+                </Grid>
+            </Grid>
         </Card>
     )
 }

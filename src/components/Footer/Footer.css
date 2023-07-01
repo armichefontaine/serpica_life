@@ -1,24 +1,36 @@
 .footer-text {
-    font-size: 0.8rem !important;
+    font-size: 0.6rem !important;
     align-self: center;
-    color: white;
+    color: rgb(0, 0, 0, 0.8) !important;
     line-height: 1.2 !important;
+    font-weight: 600 !important;
 }
 
 footer img {
     width: 100%;
 }
 .main-footer {
-    padding: 15px 0px !important;
+    background-image: url('../../assets/backgrounds/footer_main.jpg');
+    background-repeat: no-repeat;
+    background-size: 120px;
+    background-position: center;
+    border-top: 1px solid rgb(0, 0, 0, 0.3);
     height: fit-content !important;
     text-align: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 15px 20px !important;
     display: flex;
+    flex-direction: row;
     bottom: 0;
     height: 100px;
     width: 100%;
-    background-color: #000;
+    background-color: #fff;
     position: fixed;
+}
+
+.main-footer img {
+    width: 150px;
+    height: 60px;
 }
 
 @media (max-width: 400px) {

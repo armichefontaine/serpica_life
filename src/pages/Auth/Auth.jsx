@@ -19,15 +19,12 @@ function Auth() {
     return (
         <Box sx={{ overflow: 'hidden' }}>
             <header>
-                {isLogin ? (
-                    <img src={LOGIN_BACKGROUND} alt="login-register image" />
-                ) : (
-                    <img
-                        className="registerImage"
-                        src={REGISTER_BACKGROUND}
-                        alt="login-register image"
-                    />
-                )}
+                <Box
+                    component="img"
+                    alt="Fondos de pantalla"
+                    loading="lazy"
+                    src={isLogin ? LOGIN_BACKGROUND : REGISTER_BACKGROUND}
+                />
             </header>
             <main className="main">
                 {isLogin ? (

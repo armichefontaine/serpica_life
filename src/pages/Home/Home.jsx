@@ -1,20 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { styled } from '@mui/material/styles'
-import { Box, Grid, Typography, Paper } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 
 import { getCategories } from '../../services/lifeAPI'
 import CategoryCard from '../../components/CategoryCard/CategoryCard'
 
 import './Home.css'
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}))
 
 function Home() {
     const [categories, setCategories] = useState([])
@@ -45,29 +36,31 @@ function Home() {
                     ¿Qué tipo de producto buscas?
                 </Typography>
             </Grid>
-            <Grid container>
-                {categories.map((category) => {
-                    const { id, name, urlImage } = category
-                    return (
-                        <Grid item col={12} md={6}>
-                            <Item>
-                                <Link
-                                    key={category.id}
-                                    className=""
-                                    to={`/category/${id}`}
-                                >
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container justifyContent={'center'}>
+                    {categories.map((category) => {
+                        const { id, name, urlImage } = category
+                        return (
+                            <Grid
+                                margin={1}
+                                key={category.id}
+                                item
+                                xs={12}
+                                sm={5}
+                                md={4}
+                                lg={3}
+                            >
+                                <Link to={`/category/${id}`}>
                                     <CategoryCard
-                                        className="categoryCardContainer"
-                                        key={id}
                                         title={name}
                                         image={urlImage}
                                     />
                                 </Link>
-                            </Item>
-                        </Grid>
-                    )
-                })}
-            </Grid>
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+            </Box>
         </Box>
     )
 }

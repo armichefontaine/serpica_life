@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Typography, Link, Button } from '@mui/material'
+import { Box, Typography, Link, Button, Grid } from '@mui/material'
 import { getProducts, getProductsbyCategory } from '../../services/lifeAPI'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../../components/ProductCard/ProductCard'
@@ -30,41 +30,34 @@ function Products() {
         getCategoriesRequest()
     }, [])
 
-    function getCardProducts() {
-        const cards = products.map((product) => {
-            return (
-                <ProductCard
-                    key={product.id}
-                    title={product.name}
-                    image={product.urlImage}
-                    description={product.description}
-                    accesories={product.accesories}
-                    urlMoreInfo={product.urlMoreInfo}
-                    price={product.price}
-                />
-            )
-        })
-        return cards
-    }
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'colum' }}>
+        <Box paddingX={'16px'}>
             <Box
-                sx={{
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                    fontSize: '30px',
-                    marginBottom: '10px',
-                    marginTop: '30px',
-                }}
+                textAlign={'center'}
+                fontWeight={'bold'}
+                fontSize={'30px'}
+                marginBottom={'10px'}
+                marginTop={'30px'}
             >
-                <Typography sx={{ fontSize: '30px', fontWeight: 'bold' }}>
+                <Typography fontSize={30} fontWeight={'bold'}>
                     {categoryPage.name}
                 </Typography>
             </Box>
-            <Box sx={{ marginBottom: '15px' }}>
-                <BasicBreadcrumbs />
-            </Box>
-            <Box className="productPageContent">{getCardProducts()}</Box>
+            <BasicBreadcrumbs />
+            <Grid
+                container
+                flexDirection={'column'}
+                alignContent="center"
+                gap={4}
+            >
+                {products.map((product) => {
+                    return (
+                        <Grid item key={product.id} xs>
+                            <ProductCard props={{ ...product }} />
+                        </Grid>
+                    )
+                })}
+            </Grid>
         </Box>
     )
 }

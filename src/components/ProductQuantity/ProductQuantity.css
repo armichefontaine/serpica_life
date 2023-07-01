@@ -1,50 +1,6 @@
 
-.inputText {
-    width: 35px;
-    text-align: center;
-    margin: 0 5px 0 5px;
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin: 0.2rem;
-}
-.inputVerticalText {
-    width: 30px;
-    text-align: center;
-    margin: 0 5px 0 5px;
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin: 0.2rem;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-}
-
-.containerVertical {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.quantityButton {
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    background: rgb(189, 211, 171, 0.2);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-}
-
-.quantityButton:focus {
-    outline: none;
-}
-
-.quantityButton:hover {
-    background-color: #ccc;
-}
-
-.quantityButton:active {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+.quantity-btn {
+    border-radius: 0 !important;
+    background: #eeeeee !important;
+    color: #000 !important;
 }

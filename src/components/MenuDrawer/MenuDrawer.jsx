@@ -8,6 +8,9 @@ import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
 import Typography from '@mui/material/Typography'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer'
+import { Divider } from '@mui/material'
+import './MenuDrawer.css'
+import { Link } from 'react-router-dom'
 
 const drawerBleeding = 56
 
@@ -45,14 +48,16 @@ function MenuDrawer(props) {
             <Global
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {
-                        height: `calc(25% - ${drawerBleeding}px)`,
+                        height: `calc(20.9% - ${drawerBleeding}px)`,
+                        width: '50%',
                         overflow: 'visible',
+                        borderBottomLeftRadius: 5,
                     },
                 }}
             />
             <SwipeableDrawer
                 container={container}
-                anchor="top"
+                anchor="right"
                 open={open}
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
@@ -63,29 +68,29 @@ function MenuDrawer(props) {
                 }}
             >
                 <StyledBox
+                    className="menu-wrapper"
                     sx={{
-                        position: 'absolute',
-                        bottom: -drawerBleeding,
-                        borderBottomLeftRadius: 8,
-                        borderBottomRightRadius: 8,
+                        position: 'relative',
+                        borderBottomLeftRadius: 5,
                         visibility: 'visible',
-                        right: 0,
-                        left: 0,
+                        bottom: 0,
                     }}
                 >
                     <Puller />
-                    <Typography sx={{ p: 2, color: 'text.secondary' }}>
-                        &nbsp;
-                    </Typography>
+                    <Typography>Pedidos</Typography>
+                    <Divider />
+                    <Typography>Perfil</Typography>
+                    <Divider />
+                    <Link to="/">
+                        <Typography
+                            sx={{
+                                borderBottomLeftRadius: 5,
+                            }}
+                        >
+                            Salir
+                        </Typography>
+                    </Link>
                 </StyledBox>
-                <StyledBox
-                    sx={{
-                        px: 2,
-                        pb: 2,
-                        height: '100%',
-                        overflow: 'auto',
-                    }}
-                ></StyledBox>
             </SwipeableDrawer>
         </Root>
     )

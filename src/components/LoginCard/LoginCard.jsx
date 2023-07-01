@@ -28,24 +28,25 @@ function LoginCard({ changeToSignup }) {
     const navigate = useNavigate()
 
     function updateEmail(inputValue) {
-        setEmail(inputValue?.toLowerCase())
+        setEmail(inputValue)
     }
 
     function updatePassword(inputValue) {
         setPassword(inputValue)
     }
 
-    async function onLogin() {
-        const dataInLogin = {
-            email,
+    async function onLogin(e) {
+        console.log(e)
+        const user = {
+            email: email.toLowerCase(),
             password,
         }
         try {
-            const apiResponse = await login(dataInLogin)
-            localStorage.setItem('token', apiResponse.data.token)
+            const { data } = await login(user)
+            localStorage.setItem('token', data.token)
             navigate('/home')
-        } catch (error) {
-            setErrorMessage(error.response.data.error)
+        } catch ({ response }) {
+            setErrorMessage(response.data.error)
             setTimeout(() => {
                 setErrorMessage('')
             }, 3000)
@@ -66,6 +67,7 @@ function LoginCard({ changeToSignup }) {
 
                 <TextField
                     onChange={(e) => updatePassword(e.target.value)}
+                    onKeyDown={() => onLogin()}
                     label="Contraseña"
                     variant="outlined"
                     fullWidth

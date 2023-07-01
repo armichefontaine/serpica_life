@@ -11,7 +11,7 @@ function CategoryCard({ title, image }) {
 
     return (
         <Card className="cardCategory">
-            <CardMedia className="cardImage" image={prueba} />
+            <CardMedia className="cardImage" image={image ?? prueba} />
             <CardHeader
                 className="cardText"
                 sx={{ textAlign: 'center', textDecoration: 'none' }}

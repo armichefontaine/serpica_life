@@ -29,7 +29,7 @@ export default function BasicBreadcrumbs() {
 
     return (
         <div role="presentation" onClick={handleClick}>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box display={'flex'} justifyContent={'center'} marginBottom={4}>
                 <Breadcrumbs separator="›" aria-label="breadcrumb">
                     <Link style={{ textDecoration: 'none' }} to={'/home'}>
                         Categoría

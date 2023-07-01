@@ -1,7 +1,8 @@
 * {
-  font-family: 'Varela', sans-serif !important;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 #root {
   overflow-x: hidden;
+  background-color: #fafafa;
 }
