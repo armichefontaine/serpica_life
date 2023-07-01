@@ -13,6 +13,7 @@ import {
     OutlinedInput,
     InputAdornment,
     IconButton,
+    Box,
 } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -48,7 +49,7 @@ function SignupCard({ changeToLogin }) {
     }
 
     return (
-        <div className="container">
+        <>
             {isRegistered ? (
                 <Card className="card-success">
                     <CardHeader
@@ -184,7 +185,7 @@ function SignupCard({ changeToLogin }) {
                     </Card>
                 </form>
             )}
-        </div>
+        </>
     )
 }
 

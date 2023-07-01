@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconButton } from '@mui/material'
+import { Box, IconButton } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../services/auth'
 
@@ -54,75 +54,77 @@ function LoginCard({ changeToSignup }) {
     }
 
     return (
-        <Card className="card-style">
-            <CardHeader className="title" title="Acceder"></CardHeader>
-            <CardContent>
-                <TextField
-                    sx={{ marginBottom: '20px' }}
-                    onChange={(e) => updateEmail(e.target.value)}
-                    label="Email"
-                    variant="outlined"
-                    fullWidth
-                />
+        <Box sx={{ margin: 'auto', display: 'block' }}>
+            <Card className="card-style">
+                <CardHeader className="title" title="Acceder" />
+                <CardContent>
+                    <TextField
+                        sx={{ marginBottom: '20px' }}
+                        onChange={(e) => updateEmail(e.target.value)}
+                        label="Email"
+                        variant="outlined"
+                        fullWidth
+                    />
 
-                <TextField
-                    onChange={(e) => updatePassword(e.target.value)}
-                    onKeyDown={() => onLogin()}
-                    label="Contraseña"
-                    variant="outlined"
-                    fullWidth
-                />
-                {errorMessage && (
-                    <Typography color="error" textAlign="center" mt={2}>
-                        {errorMessage}
+                    <TextField
+                        onChange={(e) => updatePassword(e.target.value)}
+                        onKeyDown={() => onLogin()}
+                        label="Contraseña"
+                        variant="outlined"
+                        fullWidth
+                    />
+                    {errorMessage && (
+                        <Typography color="error" textAlign="center" mt={2}>
+                            {errorMessage}
+                        </Typography>
+                    )}
+                </CardContent>
+                <Divider />
+                <CardActions className="buttons-action">
+                    <Button onClick={() => changeToSignup()}>Registrar</Button>
+                    <Button onClick={() => onLogin()} color="success">
+                        Acceder
+                    </Button>
+                </CardActions>
+                <Divider>
+                    <Typography sx={{ fontSize: '11px' }}>
+                        INFORMACIÓN Y CONTACTO
                     </Typography>
-                )}
-            </CardContent>
-            <Divider />
-            <CardActions className="buttons-action">
-                <Button onClick={() => changeToSignup()}>Registrar</Button>
-                <Button onClick={() => onLogin()} color="success">
-                    Acceder
-                </Button>
-            </CardActions>
-            <Divider>
-                <Typography sx={{ fontSize: '11px' }}>
-                    INFORMACIÓN Y CONTACTO
-                </Typography>
-            </Divider>
-            <CardActions
-                className="button-insta"
-                sx={{ display: 'flex', justifyContent: 'center' }}
-            >
-                <IconButton
-                    component={Link}
-                    to="https://www.instagram.com/serpica.sa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="insta"
+                </Divider>
+                <CardActions
+                    className="button-insta"
+                    sx={{ display: 'flex', justifyContent: 'center' }}
                 >
-                    <InstagramIcon />
-                </IconButton>
-                <IconButton
-                    component={Link}
-                    to="https://www.homelife.it/es/download/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whatsapp"
-                >
-                    <ImportContactsIcon />
-                </IconButton>
-                <IconButton
-                    component={Link}
-                    to="https://api.whatsapp.com/send?phone=657422136"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whatsapp"
-                >
-                    <WhatsAppIcon />
-                </IconButton>
-            </CardActions>
-        </Card>
+                    <IconButton
+                        component={Link}
+                        to="https://www.instagram.com/serpica.sa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="insta"
+                    >
+                        <InstagramIcon />
+                    </IconButton>
+                    <IconButton
+                        component={Link}
+                        to="https://www.homelife.it/es/download/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="whatsapp"
+                    >
+                        <ImportContactsIcon />
+                    </IconButton>
+                    <IconButton
+                        component={Link}
+                        to="https://api.whatsapp.com/send?phone=657422136"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="whatsapp"
+                    >
+                        <WhatsAppIcon />
+                    </IconButton>
+                </CardActions>
+            </Card>
+        </Box>
     )
 }
 

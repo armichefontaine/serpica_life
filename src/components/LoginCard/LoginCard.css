@@ -1,6 +1,4 @@
 .card-style {
-    position: absolute;
-    max-width: 500px;
     opacity: 0.95;
     border: 1px inset #00000015;
 }

@@ -17,7 +17,9 @@ function Auth() {
     }
 
     return (
-        <Box sx={{ overflow: 'hidden' }}>
+        <Box
+            sx={{ overflow: 'hidden', minHeight: '100vh', background: '#fff' }}
+        >
             <header>
                 <Box
                     component="img"
@@ -26,14 +28,27 @@ function Auth() {
                     src={isLogin ? LOGIN_BACKGROUND : REGISTER_BACKGROUND}
                 />
             </header>
-            <main className="main">
+            <Box
+                component={'main'}
+                className={!isLogin && 'auth-main'}
+                paddingX={'16px'}
+                display={'flex'}
+                height={'100vh'}
+            >
                 {isLogin ? (
                     <LoginCard changeToSignup={toggleLoginSignup} />
                 ) : (
                     <SingupCard changeToLogin={toggleLoginSignup} />
                 )}
-            </main>
-            <footer className="auth-footer"></footer>
+            </Box>
+            <footer className="auth-footer">
+                <Box
+                    component="img"
+                    src={FOOTER_BACKGROUND}
+                    width={'90%'}
+                    height={'100%'}
+                ></Box>
+            </footer>
         </Box>
     )
 }
